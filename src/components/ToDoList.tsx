@@ -1,46 +1,24 @@
 import React from 'react';
-import {
-    StyleSheet,
-    Pressable,
-    View,
-    Text,
-    ScrollView,
-} from 'react-native';
+import {StyleSheet, Pressable, View, Text, ScrollView} from 'react-native';
 
-function ToDoList() : React.JSX.Element {
-    return(
-        <ScrollView>
-            <Pressable>
-            <View style={[styles.task, styles.completed]}>
-                <Text style={styles.taskText}>Do laundry</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task]}>
-                <Text style={styles.taskText}>Go to gym</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task, styles.completed]}>
-                <Text style={styles.taskText}>Walk dog</Text>
-            </View>
-            </Pressable>
-        </ScrollView>
+function ToDoList({tasks}): React.JSX.Element {
+  const taskView = tasks.map((task: string, index: number) => {
+    return (
+      <Pressable key={index}>
+        <View>
+          <Text style={style.incomplete}>
+            {task}
+          </Text>
+        </View>
+      </Pressable>
     );
+  });
+
+  return <ScrollView>{taskView}</ScrollView>;
 }
 
-const styles = StyleSheet.create({
-    task: {
-      padding: 10,
-      borderBottomWidth: 1,
-      borderColor: '#ccc',
-    },
-    completed: {
-      backgroundColor: '#e0e0e0',
-    },
-    taskText: {
-      fontSize: 16,
-    },
+const style = StyleSheet.create({
+  incomplete: {},
 });
 
 export default ToDoList;
