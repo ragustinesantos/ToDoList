@@ -6,9 +6,7 @@ function ToDoList({tasks}): React.JSX.Element {
     return (
       <Pressable key={index}>
         <View>
-          <Text style={style.incomplete}>
-            {task}
-          </Text>
+          <Text style={style.incomplete}>{task}</Text>
         </View>
       </Pressable>
     );
@@ -19,6 +17,17 @@ function ToDoList({tasks}): React.JSX.Element {
 
 const style = StyleSheet.create({
   incomplete: {},
+  task: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+  },
+  completed: {
+    backgroundColor: '#e0e0e0',
+  },
+  taskText: {
+    fontSize: 16,
+  },
 });
 
 export default ToDoList;
