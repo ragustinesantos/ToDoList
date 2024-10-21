@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import {StyleSheet, Pressable, View, Text, ScrollView} from 'react-native';
 
 function ToDoList({tasks}): React.JSX.Element {
