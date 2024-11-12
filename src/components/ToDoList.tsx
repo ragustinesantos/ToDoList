@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Pressable, View, Text, ScrollView} from 'react-native';
 
-function ToDoList({tasks}): React.JSX.Element {
+function ToDoList({tasks}: {tasks: any}): React.JSX.Element {
   const taskView = tasks.map((task: string, index: number) => {
     return (
       <Pressable key={index} style={style.task}>
@@ -12,14 +12,10 @@ function ToDoList({tasks}): React.JSX.Element {
     );
   });
 
-  return <ScrollView style={style.taskView}>{taskView}</ScrollView>;
+  return <View>{taskView}</View>;
 }
 
 const style = StyleSheet.create({
-  incomplete: {},
-  taskView: {
-    marginTop: 10,
-  },
   task: {
     padding: 10,
     marginHorizontal: 15,

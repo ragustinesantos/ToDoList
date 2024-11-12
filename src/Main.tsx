@@ -2,26 +2,23 @@
 import React from 'react';
 import {useState} from 'react';
 import {Alert, SafeAreaView} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+
+const Stack = createNativeStackNavigator();
 
 function Main(): React.JSX.Element {
-  const [tasks, setTasks] = useState(['Do Laundry', 'Go to gym', 'Walk dog']);
-
-  const addTask = (taskText: string) => {
-    if (!tasks.includes(taskText)) {
-      setTasks([...tasks, taskText]);
-      return;
-    }
-
-    Alert.alert('Error', 'Duplicate Task Found');
-  };
-
   return (
-    <SafeAreaView>
-      <ToDoList tasks={tasks} />
-      <ToDoForm addTask={addTask} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
