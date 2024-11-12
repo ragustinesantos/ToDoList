@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import Footer from '../components/Footer';
 
-const MainLayout = ({children}) => {
+const MainLayout = ({children}: {children: any}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>{children}</ScrollView>

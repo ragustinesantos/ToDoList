@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Pressable, View, Text, ScrollView} from 'react-native';
+import {StyleSheet, Pressable, View, Text} from 'react-native';
 
 function ToDoList({tasks}: {tasks: any}): React.JSX.Element {
   const taskView = tasks.map((task: string, index: number) => {
